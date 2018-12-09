@@ -12,7 +12,7 @@ export default props => {
 
   const onSubmit = e => (
     e.preventDefault(),
-    props.onSubmit && props.onSubmit(query),
+    props.onSubmit && props.onSubmit({ topic: props.topic, query }),
     setQuery(defaultQuery)
   );
 

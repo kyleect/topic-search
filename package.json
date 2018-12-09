@@ -18,6 +18,7 @@
   },
   "dependencies": {
     "@material-ui/core": "^3.6.1",
+    "@reach/router": "^1.2.1",
     "react": "16.7.0-alpha.0",
     "react-dom": "16.7.0-alpha.0",
     "styled-components": "^4.1.2"
