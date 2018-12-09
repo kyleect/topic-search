@@ -8,11 +8,6 @@ import SearchLink from "./SearchLink";
 import List from "@material-ui/core/List";
 import ListItem from "@material-ui/core/ListItem";
 import ListItemText from "@material-ui/core/ListItemText";
-import Card from "@material-ui/core/Card";
-import CardActions from "@material-ui/core/CardActions";
-import CardContent from "@material-ui/core/CardContent";
-import Chip from "@material-ui/core/Chip";
-import Divider from "@material-ui/core/Divider";
 
 const Style = styled.div`
   font-style: bold;
