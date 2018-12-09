@@ -1,7 +1,10 @@
 import React, { useState } from "react";
 import styled from "styled-components";
+import TextField from "@material-ui/core/TextField";
 
-const Style = styled.form``;
+const Style = styled.form`
+  width: 100%;
+`;
 
 export default props => {
   const defaultQuery = "";
@@ -20,10 +23,15 @@ export default props => {
 
   return (
     <Style onSubmit={onSubmit}>
-      <div>
-        <label htmlFor="query">Query: </label>
-        <input autoFocus type="text" value={query} onChange={onChange} />
-      </div>
+      <TextField
+        label={`Query: '${props.topic}'`}
+        required
+        fullWidth
+        autoFocus
+        type="text"
+        value={query}
+        onChange={onChange}
+      />
     </Style>
   );
 };

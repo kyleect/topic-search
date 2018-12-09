@@ -5,6 +5,15 @@ import SetTopicForm from "./SetTopicForm";
 import TopicSearchForm from "./TopicSearchForm";
 import SearchLink from "./SearchLink";
 
+import List from "@material-ui/core/List";
+import ListItem from "@material-ui/core/ListItem";
+import ListItemText from "@material-ui/core/ListItemText";
+import Card from "@material-ui/core/Card";
+import CardActions from "@material-ui/core/CardActions";
+import CardContent from "@material-ui/core/CardContent";
+import Chip from "@material-ui/core/Chip";
+import Divider from "@material-ui/core/Divider";
+
 const Style = styled.div`
   font-style: bold;
 `;
@@ -26,34 +35,23 @@ const App = () => {
   return (
     <Style>
       {topic ? (
-        <div>
-          <p>
-            Topic: {topic}{" "}
-            <a href="" onClick={clearTopic}>
-              Clear
-            </a>
-          </p>
-
-          <TopicSearchForm topic={topic} onSubmit={onSubmitSearch} />
-        </div>
+        <TopicSearchForm topic={topic} onSubmit={onSubmitSearch} />
       ) : (
         <SetTopicForm onSubmit={setTopic} />
       )}
 
       {history.length > 0 ? (
-        <div>
-          <hr />
-
-          <ol>
-            {history.map(({ topic, query }) => (
-              <li>
+        <List>
+          {history.map(({ topic, query }) => (
+            <ListItem>
+              <ListItemText>
                 <SearchLink topic={topic} query={query}>
                   "{topic} {query}"
                 </SearchLink>
-              </li>
-            ))}
-          </ol>
-        </div>
+              </ListItemText>
+            </ListItem>
+          ))}
+        </List>
       ) : null}
     </Style>
   );

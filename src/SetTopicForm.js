@@ -1,7 +1,10 @@
 import React, { useState } from "react";
 import styled from "styled-components";
+import TextField from "@material-ui/core/TextField";
 
-const Style = styled.form``;
+const Style = styled.form`
+  width: 100%;
+`;
 
 export default props => {
   const defaultTopic = "";
@@ -20,10 +23,15 @@ export default props => {
 
   return (
     <Style onSubmit={onSubmit}>
-      <div>
-        <label htmlFor="topic">Topic: </label>
-        <input autoFocus type="text" value={topic} onChange={onChange} />
-      </div>
+      <TextField
+        label="Topic"
+        required
+        fullWidth
+        autoFocus
+        type="text"
+        value={topic}
+        onChange={onChange}
+      />
     </Style>
   );
 };
