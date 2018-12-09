@@ -13,10 +13,29 @@ const App = () => {
   const [topic, setTopic] = useState("");
   const [query, setQuery] = useState("");
 
+  const clearTopic = e => {
+    e.preventDefault();
+    setTopic("");
+  };
+
+  const clearQuery = e => {
+    e.preventDefault();
+    setQuery("");
+  };
+
   return (
     <Style>
       {topic ? (
-        <TopicSearchForm topic={topic} onSubmit={setQuery} />
+        <div>
+          <p>
+            Topic: {topic}{" "}
+            <a href="" onClick={clearTopic}>
+              Clear
+            </a>
+          </p>
+
+          <TopicSearchForm topic={topic} onSubmit={setQuery} />
+        </div>
       ) : (
         <SetTopicForm onSubmit={setTopic} />
       )}

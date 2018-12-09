@@ -21,11 +21,9 @@ export default props => {
   return (
     <Style onSubmit={onSubmit}>
       <div>
-        <label htmlFor="query">Query Topic: {props.topic} </label>
+        <label htmlFor="query">Query: </label>
         <input autoFocus type="text" value={query} onChange={onChange} />
       </div>
-
-      <button>Save</button>
     </Style>
   );
 };

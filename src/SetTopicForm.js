@@ -23,7 +23,6 @@ export default props => {
       <div>
         <label htmlFor="topic">Topic: </label>
         <input autoFocus type="text" value={topic} onChange={onChange} />
-        <button>Save</button>
       </div>
     </Style>
   );
