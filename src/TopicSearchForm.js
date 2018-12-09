@@ -1,11 +1,17 @@
 import React, { useState } from "react";
 import styled from "styled-components";
 
-const Style = styled.div``;
+const Style = styled.form``;
 
 export default props => {
   const defaultQuery = "";
   const [query, setQuery] = useState(defaultQuery);
+
+  const onSubmit = e => (
+    e.preventDefault(),
+    props.onSubmit && props.onSubmit(query),
+    setQuery(defaultQuery)
+  );
 
   const onChange = e => {
     const query = e.target.value;
@@ -13,17 +19,13 @@ export default props => {
   };
 
   return (
-    <Style>
+    <Style onSubmit={onSubmit}>
       <div>
-        <label htmlFor="topic">Query Topic: {props.topic} </label>
-        <input type="text" value={query} onChange={onChange} />
+        <label htmlFor="query">Query Topic: {props.topic} </label>
+        <input autoFocus type="text" value={query} onChange={onChange} />
       </div>
 
-      {query ? (
-        <a href={`https://www.google.com/search?q=${props.topic} ${query}`}>
-          Query
-        </a>
-      ) : null}
+      <button>Save</button>
     </Style>
   );
 };

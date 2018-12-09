@@ -19,14 +19,10 @@ export default props => {
   };
 
   return (
-    <Style onSubmit={onSubmit} onChange={onChange}>
+    <Style onSubmit={onSubmit}>
       <div>
-        <label htmlFor="topic">Topic</label>
-        <input
-          type="text"
-          value={topic}
-          onChange={e => setTopic(e.target.value)}
-        />
+        <label htmlFor="topic">Topic: </label>
+        <input autoFocus type="text" value={topic} onChange={onChange} />
         <button>Save</button>
       </div>
     </Style>
