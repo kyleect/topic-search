@@ -11,16 +11,16 @@ const Style = styled.div`
 
 const App = () => {
   const [topic, setTopic] = useState("");
-  const [query, setQuery] = useState("");
+  const [history, setHistory] = useState([]);
 
   const clearTopic = e => {
     e.preventDefault();
     setTopic("");
+    setHistory([]);
   };
 
-  const clearQuery = e => {
-    e.preventDefault();
-    setQuery("");
+  const onSubmitSearch = query => {
+    setHistory([...history, { topic, query }]);
   };
 
   return (
@@ -34,17 +34,25 @@ const App = () => {
             </a>
           </p>
 
-          <TopicSearchForm topic={topic} onSubmit={setQuery} />
+          <TopicSearchForm topic={topic} onSubmit={onSubmitSearch} />
         </div>
       ) : (
         <SetTopicForm onSubmit={setTopic} />
       )}
-      {topic && query ? (
+
+      {history.length > 0 ? (
         <div>
           <hr />
-          <SearchLink topic={topic} query={query}>
-            "{topic} {query}"
-          </SearchLink>
+
+          <ol>
+            {history.map(({ topic, query }) => (
+              <li>
+                <SearchLink topic={topic} query={query}>
+                  "{topic} {query}"
+                </SearchLink>
+              </li>
+            ))}
+          </ol>
         </div>
       ) : null}
     </Style>
