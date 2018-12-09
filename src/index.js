@@ -1,19 +1,25 @@
-import React from "react";
+import React, { useState } from "react";
 import ReactDOM from "react-dom";
 import styled from "styled-components";
+import SetTopicForm from "./SetTopicForm";
+import TopicSearchForm from "./TopicSearchForm";
 
-const Styled = styled.div`
+const Style = styled.div`
   font-style: bold;
 `;
 
-class App extends React.Component {
-  render() {
-    return (
-      <Styled>
-        <h1>Hello</h1>
-      </Styled>
-    );
-  }
-}
+const App = () => {
+  const [topic, setTopic] = useState("");
+
+  return (
+    <Style>
+      {topic ? (
+        <TopicSearchForm topic={topic} />
+      ) : (
+        <SetTopicForm onSubmit={setTopic} />
+      )}
+    </Style>
+  );
+};
 
 ReactDOM.render(<App />, document.getElementById("app"));
