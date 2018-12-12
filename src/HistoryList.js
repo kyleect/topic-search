@@ -5,6 +5,7 @@ import React from "react";
 
 export default props => {
   const QueryLink = props.link;
+  console.log({ props });
 
   return props.history.length > 0 ? (
     <List>
