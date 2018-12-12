@@ -1,0 +1,9 @@
+{
+  "name": "Topic Search",
+  "short_name": "Topic Search",
+  "start_url": ".",
+  "display": "standalone",
+  "background_color": "#fff",
+  "description": "A simply readable Hacker News app.",
+  "lang": "en-US"
+}
