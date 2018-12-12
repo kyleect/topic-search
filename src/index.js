@@ -10,20 +10,12 @@ const Style = styled.div`
   font-style: bold;
 `;
 
-const SetTopicPage = props => {
-  return <SetTopicForm onSubmit={props.setTopic} />;
-};
-
-const SetQueryPage = props => {
-  return <SetQueryForm topic={props.topic} onSubmit={props.onSubmitSearch} />;
-};
-
 const App = () => {
   return (
     <Style>
       <Router>
-        <SetTopicPage path="/" setTopic={topic => navigate(`/${topic}`)} />
-        <SetQueryPage path="/:topic" />
+        <SetTopicForm path="/" onSubmit={topic => navigate(`/${topic}`)} />
+        <SetQueryForm path="/:topic" />
       </Router>
     </Style>
   );
