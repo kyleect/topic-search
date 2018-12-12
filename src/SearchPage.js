@@ -28,6 +28,8 @@ export default props => {
     setQuery(query);
   };
 
+  const topicHistory = history.filter(({ topic }) => topic === props.topic);
+
   return (
     <Style onSubmit={onSubmit}>
       <TextField
@@ -40,7 +42,7 @@ export default props => {
         onChange={onChange}
       />
 
-      <HistoryList history={history} link={QueryLink} />
+      <HistoryList history={topicHistory} link={QueryLink} />
     </Style>
   );
 };
