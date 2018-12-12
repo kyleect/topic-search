@@ -4,6 +4,7 @@ import { Link, Router, navigate } from "@reach/router";
 import styled from "styled-components";
 import SetTopicForm from "./SetTopicForm";
 import SetQueryForm from "./SetQueryForm";
+import useLocalStorage from "./hooks/useLocalStorage";
 
 import HistoryList from "./HistoryList";
 
@@ -20,9 +21,12 @@ const SetQueryPage = props => {
 };
 
 const App = () => {
-  const [history, setHistory] = useState([]);
+  const [history, setHistory] = useLocalStorage("history", []);
 
-  const onSubmitSearch = topicQuery => setHistory([...history, topicQuery]);
+  const onSubmitSearch = ({ topic, query }) => {
+    setHistory([...history, { topic, query }]);
+    window.open(`https://www.google.com/search?q=${topic} ${query}`);
+  };
 
   return (
     <Style>
