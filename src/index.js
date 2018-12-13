@@ -3,8 +3,8 @@ import React from "react";
 import ReactDOM from "react-dom";
 import styled from "styled-components";
 
-import SearchPage from "./SearchPage";
-import CreateTopicPage from "./CreateTopicPage";
+import SearchPage from "./pages/SearchPage";
+import CreateTopicPage from "./pages/CreateTopicPage";
 
 const Style = styled.div`
   font-style: bold;

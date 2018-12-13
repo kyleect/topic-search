@@ -5,9 +5,8 @@ import List from "@material-ui/core/List";
 import ListItem from "@material-ui/core/ListItem";
 import ListItemText from "@material-ui/core/ListItemText";
 
-import HistoryList from "./HistoryList";
-import * as engines from "./engines";
-import useLocalStorage from "./hooks/useLocalStorage";
+import * as engines from "../engines";
+import useLocalStorage from "../hooks/useLocalStorage";
 
 const Style = styled.form`
   width: 100%;

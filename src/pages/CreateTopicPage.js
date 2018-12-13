@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import styled from "styled-components";
 import TextField from "@material-ui/core/TextField";
-import useLocalStorage from "./hooks/useLocalStorage";
+import useLocalStorage from "../hooks/useLocalStorage";
 import List from "@material-ui/core/List";
 import ListItem from "@material-ui/core/ListItem";
 import ListItemText from "@material-ui/core/ListItemText";
