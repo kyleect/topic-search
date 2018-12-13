@@ -12,9 +12,7 @@ export default props => {
       {props.history.map(({ topic, query }, i) => (
         <ListItem key={i}>
           <ListItemText>
-            <QueryLink query={`${topic} ${query}`}>
-              "{topic} {query}"
-            </QueryLink>
+            <QueryLink query={`${topic} ${query}`}>"{query}"</QueryLink>
           </ListItemText>
         </ListItem>
       ))}
