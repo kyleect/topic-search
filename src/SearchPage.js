@@ -15,7 +15,7 @@ const { queryUrl, QueryLink } = engines.google;
 export default props => {
   const defaultQuery = "";
   const [query, setQuery] = useState(defaultQuery);
-  const [history, setHistory] = useLocalStorage("history", []);
+  const [history, setHistory] = useLocalStorage("queryHistory", []);
 
   const onSubmit = e => {
     e.preventDefault();

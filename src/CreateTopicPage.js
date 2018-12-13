@@ -14,7 +14,7 @@ const Style = styled.form`
 export default props => {
   const defaultTopic = "";
   const [topic, setTopic] = useState(defaultTopic);
-  const [history, setHistory] = useLocalStorage("history", []);
+  const [history, setHistory] = useLocalStorage("topicHistory", []);
 
   const onSubmit = e => (
     e.preventDefault(),
