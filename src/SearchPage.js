@@ -1,6 +1,9 @@
 import React, { useState } from "react";
 import styled from "styled-components";
 import TextField from "@material-ui/core/TextField";
+import List from "@material-ui/core/List";
+import ListItem from "@material-ui/core/ListItem";
+import ListItemText from "@material-ui/core/ListItemText";
 
 import HistoryList from "./HistoryList";
 import * as engines from "./engines";
@@ -43,7 +46,17 @@ export default props => {
         onChange={onChange}
       />
 
-      <HistoryList history={topicHistory} link={QueryLink} />
+      {topicHistory.length ? (
+        <List>
+          {topicHistory.map(({ topic, query }, i) => (
+            <ListItem key={i}>
+              <ListItemText>
+                <QueryLink query={`${topic} ${query}`}>"{query}"</QueryLink>
+              </ListItemText>
+            </ListItem>
+          ))}
+        </List>
+      ) : null}
     </Style>
   );
 };
