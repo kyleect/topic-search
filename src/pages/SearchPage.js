@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, Fragment } from "react";
 import { Link } from "@reach/router";
 import styled from "styled-components";
 import TextField from "@material-ui/core/TextField";
@@ -6,6 +6,7 @@ import List from "@material-ui/core/List";
 import ListItem from "@material-ui/core/ListItem";
 import ListItemText from "@material-ui/core/ListItemText";
 import Typography from "@material-ui/core/Typography";
+import Divider from "@material-ui/core/Divider";
 
 import * as engines from "../engines";
 import useLocalStorage from "../hooks/useLocalStorage";
@@ -60,11 +61,16 @@ export default props => {
       {topicHistory.length ? (
         <List>
           {topicHistory.map(({ topic, query }, i) => (
-            <ListItem key={i}>
-              <ListItemText>
-                <QueryLink query={`${topic} ${query}`}>"{query}"</QueryLink>
-              </ListItemText>
-            </ListItem>
+            <Fragment key={i}>
+              <ListItem>
+                <ListItemText>
+                  <QueryLink query={`${topic} ${query}`}>
+                    <Typography variant="body1">{query}</Typography>
+                  </QueryLink>
+                </ListItemText>
+              </ListItem>
+              <Divider />
+            </Fragment>
           ))}
         </List>
       ) : null}
