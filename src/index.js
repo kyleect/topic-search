@@ -1,18 +1,7 @@
 import "@babel/polyfill";
-import { navigate, Router } from "@reach/router";
 import React from "react";
 import ReactDOM from "react-dom";
 
-import SearchPage from "./pages/SearchPage";
-import CreateTopicPage from "./pages/CreateTopicPage";
-
-const App = () => {
-  return (
-    <Router>
-      <CreateTopicPage path="/" onSubmit={topic => navigate(`/${topic}`)} />
-      <SearchPage path="/:topic" />
-    </Router>
-  );
-};
+import App from "./App";
 
 ReactDOM.render(<App />, document.getElementById("app"));
