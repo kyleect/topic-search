@@ -7,6 +7,7 @@ import ListItem from "@material-ui/core/ListItem";
 import ListItemText from "@material-ui/core/ListItemText";
 import Typography from "@material-ui/core/Typography";
 import Divider from "@material-ui/core/Divider";
+import { Helmet } from "react-helmet";
 
 import * as engines from "../engines";
 import useLocalStorage from "../hooks/useLocalStorage";
@@ -42,6 +43,9 @@ export default props => {
 
   return (
     <Style onSubmit={onSubmit}>
+      <Helmet>
+        <title>{props.topic} Search</title>
+      </Helmet>
       <HeaderLink to="/">
         <Typography variant="h2" gutterBottom>
           {props.topic}

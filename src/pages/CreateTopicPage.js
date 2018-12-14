@@ -8,6 +8,7 @@ import ListItemText from "@material-ui/core/ListItemText";
 import Typography from "@material-ui/core/Typography";
 import Divider from "@material-ui/core/Divider";
 import { Link } from "@reach/router";
+import { Helmet } from "react-helmet";
 
 const Style = styled.form`
   width: 100%;
@@ -32,6 +33,10 @@ export default props => {
 
   return (
     <Style onSubmit={onSubmit}>
+      <Helmet>
+        <title>Topic Search</title>
+      </Helmet>
+
       <TextField
         label="Topic"
         required
