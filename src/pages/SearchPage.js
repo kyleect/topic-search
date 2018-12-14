@@ -12,6 +12,12 @@ const Style = styled.form`
   width: 100%;
 `;
 
+const Header = styled.h1`
+  font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
+  font-style: italic;
+  color: #333;
+`;
+
 const { queryUrl, QueryLink } = engines.google;
 
 export default props => {
@@ -35,8 +41,10 @@ export default props => {
 
   return (
     <Style onSubmit={onSubmit}>
+      <Header>{props.topic}</Header>
+
       <TextField
-        label={`Query: '${props.topic}'`}
+        label="Query"
         required
         fullWidth
         autoFocus
