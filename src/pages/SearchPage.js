@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { Link } from "@reach/router";
 import styled from "styled-components";
 import TextField from "@material-ui/core/TextField";
 import List from "@material-ui/core/List";
@@ -13,10 +14,8 @@ const Style = styled.form`
   width: 100%;
 `;
 
-const Header = styled.h1`
-  font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
-  font-style: italic;
-  color: #333;
+const HeaderLink = styled(Link)`
+  text-decoration: none;
 `;
 
 const { queryUrl, QueryLink } = engines.google;
@@ -42,9 +41,11 @@ export default props => {
 
   return (
     <Style onSubmit={onSubmit}>
-      <Typography variant="h2" gutterBottom>
-        {props.topic}
-      </Typography>
+      <HeaderLink to="/">
+        <Typography variant="h2" gutterBottom>
+          {props.topic}
+        </Typography>
+      </HeaderLink>
 
       <TextField
         label="Query"
