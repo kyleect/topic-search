@@ -1,3 +1,4 @@
+import "@babel/polyfill";
 import { navigate, Router } from "@reach/router";
 import React from "react";
 import ReactDOM from "react-dom";
