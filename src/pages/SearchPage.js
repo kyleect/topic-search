@@ -4,6 +4,7 @@ import TextField from "@material-ui/core/TextField";
 import List from "@material-ui/core/List";
 import ListItem from "@material-ui/core/ListItem";
 import ListItemText from "@material-ui/core/ListItemText";
+import Typography from "@material-ui/core/Typography";
 
 import * as engines from "../engines";
 import useLocalStorage from "../hooks/useLocalStorage";
@@ -41,7 +42,9 @@ export default props => {
 
   return (
     <Style onSubmit={onSubmit}>
-      <Header>{props.topic}</Header>
+      <Typography variant="h2" gutterBottom>
+        {props.topic}
+      </Typography>
 
       <TextField
         label="Query"
