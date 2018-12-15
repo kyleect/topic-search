@@ -5,6 +5,7 @@ import React, { useState } from "react";
 import { Helmet } from "react-helmet";
 import styled from "styled-components";
 import LinkList from "../components/LinkList";
+import Nullable from "../components/Nullable";
 import useLocalStorage from "../hooks/useLocalStorage";
 
 const Style = styled.form`
@@ -44,9 +45,9 @@ export default props => {
         onChange={onChange}
       />
 
-      {history.length ? (
+      <Nullable if={history.length}>
         <LinkList items={history}>{renderHistoryLink}</LinkList>
-      ) : null}
+      </Nullable>
     </Style>
   );
 };

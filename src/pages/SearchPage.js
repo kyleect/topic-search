@@ -5,6 +5,7 @@ import React, { useState } from "react";
 import { Helmet } from "react-helmet";
 import styled from "styled-components";
 import LinkList from "../components/LinkList";
+import Nullable from "../components/Nullable";
 import * as engines from "../engines";
 import useLocalStorage from "../hooks/useLocalStorage";
 
@@ -58,15 +59,15 @@ export default props => {
         onChange={onChange}
       />
 
-      {topicHistory.length ? (
-        <LinkList items={topicHistory}>
-          {({ topic, query }) => (
-            <QueryLink query={`${topic} ${query}`}>
-              <Typography variant="body1">{query}</Typography>
-            </QueryLink>
-          )}
-        </LinkList>
-      ) : null}
+      <Nullable if={topicHistory.length}>
+        <LinkList items={topicHistory}>{renderHistoryLink}</LinkList>
+      </Nullable>
     </Style>
   );
 };
+
+const renderHistoryLink = ({ topic, query }) => (
+  <QueryLink query={`${topic} ${query}`}>
+    <Typography variant="body1">{query}</Typography>
+  </QueryLink>
+);
