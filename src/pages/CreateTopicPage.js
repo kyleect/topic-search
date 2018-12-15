@@ -1,14 +1,11 @@
-import React, { useState, Fragment } from "react";
-import styled from "styled-components";
 import TextField from "@material-ui/core/TextField";
-import useLocalStorage from "../hooks/useLocalStorage";
-import List from "@material-ui/core/List";
-import ListItem from "@material-ui/core/ListItem";
-import ListItemText from "@material-ui/core/ListItemText";
 import Typography from "@material-ui/core/Typography";
-import Divider from "@material-ui/core/Divider";
 import { Link } from "@reach/router";
+import React, { useState } from "react";
 import { Helmet } from "react-helmet";
+import styled from "styled-components";
+import LinkList from "../components/LinkList";
+import useLocalStorage from "../hooks/useLocalStorage";
 
 const Style = styled.form`
   width: 100%;
@@ -48,21 +45,14 @@ export default props => {
       />
 
       {history.length ? (
-        <List>
-          {history.map((topic, i) => (
-            <Fragment key={i}>
-              <ListItem>
-                <ListItemText>
-                  <Link to={`/${topic}`}>
-                    <Typography variant="body1">{topic}</Typography>
-                  </Link>
-                </ListItemText>
-              </ListItem>
-              <Divider />
-            </Fragment>
-          ))}
-        </List>
+        <LinkList items={history}>{renderHistoryLink}</LinkList>
       ) : null}
     </Style>
   );
 };
+
+const renderHistoryLink = topic => (
+  <Link to={`/${topic}`}>
+    <Typography variant="body1">{topic}</Typography>
+  </Link>
+);

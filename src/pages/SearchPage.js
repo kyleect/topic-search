@@ -1,14 +1,10 @@
-import React, { useState, Fragment } from "react";
-import { Link } from "@reach/router";
-import styled from "styled-components";
 import TextField from "@material-ui/core/TextField";
-import List from "@material-ui/core/List";
-import ListItem from "@material-ui/core/ListItem";
-import ListItemText from "@material-ui/core/ListItemText";
 import Typography from "@material-ui/core/Typography";
-import Divider from "@material-ui/core/Divider";
+import { Link } from "@reach/router";
+import React, { useState } from "react";
 import { Helmet } from "react-helmet";
-
+import styled from "styled-components";
+import LinkList from "../components/LinkList";
 import * as engines from "../engines";
 import useLocalStorage from "../hooks/useLocalStorage";
 
@@ -63,20 +59,13 @@ export default props => {
       />
 
       {topicHistory.length ? (
-        <List>
-          {topicHistory.map(({ topic, query }, i) => (
-            <Fragment key={i}>
-              <ListItem>
-                <ListItemText>
-                  <QueryLink query={`${topic} ${query}`}>
-                    <Typography variant="body1">{query}</Typography>
-                  </QueryLink>
-                </ListItemText>
-              </ListItem>
-              <Divider />
-            </Fragment>
-          ))}
-        </List>
+        <LinkList items={topicHistory}>
+          {({ topic, query }) => (
+            <QueryLink query={`${topic} ${query}`}>
+              <Typography variant="body1">{query}</Typography>
+            </QueryLink>
+          )}
+        </LinkList>
       ) : null}
     </Style>
   );
