@@ -1,0 +1,15 @@
+{
+  "name": "Topic Search",
+  "short_name": "Topic Search",
+  "start_url": ".",
+  "display": "standalone",
+  "background_color": "#fff",
+  "description": "",
+  "icons": [
+    {
+      "src": "../static/icon.png",
+      "sizes": "48x48",
+      "type": "image/png"
+    }
+  ]
+}
